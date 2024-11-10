@@ -15,8 +15,7 @@ A VS Code extension for formatting PHP code.
 ## Usage
 
 1. Open a PHP file
-2. Right click and select "PHP Clean Code"
-3. Or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code"
+2. Right click and select "PHP Clean Code" or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code"
 
 ## Settings
 
