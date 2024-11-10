@@ -8,7 +8,7 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 
 ## Features
 
-- <span style="color: yellow;">Format comments
+- > Format comments
 - Removes multiple consecutive empty lines
 - Removes empty lines inside the blocks at the beginning and at the end
 - Removes unnecessary spaces in opening and closing parentheses
