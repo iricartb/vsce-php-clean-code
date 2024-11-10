@@ -3,7 +3,7 @@
     "displayName": "PHP Clean Code",
     "publisher": "PHPCleanCode",
     "description": "PHP code formatter according to specific rules",
-    "version": "2.0.6",
+    "version": "2.1.0",
     "icon": "resources/icon.png",
     "repository": {
         "type": "git",
@@ -34,10 +34,30 @@
         "configuration": {
             "title": "PHP Clean Code",
             "properties": {
+                "php-clean-code.formatAssociativeArrayAlignment": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Align the => operators in multiline associative arrays"
+                },
+                "php-clean-code.formatBraces": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Format opening and closing braces"
+                },
                 "php-clean-code.formatComments": {
                     "type": "boolean",
                     "default": true,
                     "description": "Format comments"
+                },
+                "php-clean-code.formatFunctionParams": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Format function parameters"
+                },
+                "php-clean-code.formatKeywords": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Format control structures"
                 },
                 "php-clean-code.removeMultipleEmptyLines": {
                     "type": "boolean",
@@ -53,21 +73,6 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Removes unnecessary spaces in opening and closing parentheses"
-                },
-                "php-clean-code.formatBraces": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Format opening and closing braces"
-                },
-                "php-clean-code.formatFunctionParams": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Format function parameters"
-                },
-                "php-clean-code.formatKeywords": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Format control structures"
                 }
             }
         }

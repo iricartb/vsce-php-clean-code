@@ -1,13 +1,14 @@
 import * as vscode from 'vscode';
 
 interface FormatOptions {
+    formatAssociativeArrayAlignment: boolean;
+    formatBraces: boolean;
     formatComments: boolean;
+    formatFunctionParams: boolean;
+    formatKeywords: boolean;
     removeBlockInitEndEmptyLines: boolean;
     removeMultipleEmptyLines: boolean;
     removeUnnecessarySpacesParentheses: boolean;
-    formatBraces: boolean;
-    formatFunctionParams: boolean;
-    formatKeywords: boolean;
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -29,13 +30,14 @@ export function activate(context: vscode.ExtensionContext) {
 
         const config = vscode.workspace.getConfiguration('php-clean-code');
         const options: FormatOptions = {
+            formatAssociativeArrayAlignment: config.get('formatAssociativeArrayAlignment', true),
+            formatBraces: config.get('formatBraces', true),
+            formatComments: config.get('formatComments', true),
+            formatFunctionParams: config.get('formatFunctionParams', true),
+            formatKeywords: config.get('formatKeywords', true),
             removeBlockInitEndEmptyLines: config.get('removeBlockInitEndEmptyLines', true),
             removeMultipleEmptyLines: config.get('removeMultipleEmptyLines', true),
-            formatComments: config.get('formatComments', true),
-            removeUnnecessarySpacesParentheses: config.get('removeUnnecessarySpacesParentheses', true),
-            formatBraces: config.get('formatBraces', true),
-            formatFunctionParams: config.get('formatFunctionParams', true),
-            formatKeywords: config.get('formatKeywords', true)
+            removeUnnecessarySpacesParentheses: config.get('removeUnnecessarySpacesParentheses', true)
         };
 
         console.log('Opciones:', options);
@@ -96,6 +98,11 @@ function formatCode(text: string, options: FormatOptions): string {
                 lines.splice(i, 1);
             }
         }
+    }
+
+    // Formatea arrays asociativos
+    if (options.formatAssociativeArrayAlignment) {
+        lines = formatAssociativeArrayBlocks(lines);
     }
 
     lines = lines.map(line => {
@@ -207,6 +214,67 @@ function formatCode(text: string, options: FormatOptions): string {
     });
 
     return lines.join('\n');
+}
+
+function formatAssociativeArrayBlocks(lines: string[]): string[] {
+    let inArray = false;
+    let arrayStartIndex = -1;
+    let currentBlockKeys: string[] = [];
+    let maxKeyLength = 0;
+
+    const result = [...lines];
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        
+        // Detectar inicio de array
+        if (line.endsWith('[') || line.match(/array\s*\($/i)) {
+            inArray = true;
+            arrayStartIndex = i;
+            currentBlockKeys = [];
+            maxKeyLength = 0;
+            continue;
+        }
+
+        // Detectar fin de array
+        if (inArray && (line.startsWith(']') || line.startsWith(')'))) {
+            // Aplicar formato al bloque actual
+            if (currentBlockKeys.length > 0) {
+                for (let j = arrayStartIndex + 1; j < i; j++) {
+                    const currentLine = result[j];
+                    const keyMatch = currentLine.match(/^\s*((['"])([^'"=>]+)\2|[^'"=>]+)\s*=>/);
+                    
+                    if (keyMatch) {
+                        const indentationMatch = currentLine.match(/^\s*/);
+                        const indentation = indentationMatch ? indentationMatch[0] : '';
+                        const fullKey = keyMatch[1];  // Incluye las comillas si existen
+                        const keyContent = keyMatch[3] || keyMatch[1];  // Contenido sin comillas
+                        const afterArrow = currentLine.split('=>')[1];
+                        
+                        // Crear el padding necesario
+                        const padding = ' '.repeat(maxKeyLength - keyContent.trim().length);
+                        result[j] = `${indentation}${fullKey}${padding} =>${afterArrow}`;
+                    }
+                }
+            }
+            
+            inArray = false;
+            arrayStartIndex = -1;
+            continue;
+        }
+
+        // Procesar líneas dentro del array
+        if (inArray && line.includes('=>')) {
+            const keyMatch = line.match(/^\s*((['"])([^'"=>]+)\2|[^'"=>]+)\s*=>/);
+            if (keyMatch) {
+                const keyContent = keyMatch[3] || keyMatch[1];  // Contenido sin comillas
+                currentBlockKeys.push(keyContent.trim());
+                maxKeyLength = Math.max(maxKeyLength, keyContent.trim().length);
+            }
+        }
+    }
+
+    return result;
 }
 
 export function deactivate() {}

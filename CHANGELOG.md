@@ -31,3 +31,7 @@ Change README.md images
 ### 2.0.6 (Nov 2024)
 
 Change CHANGELOG.md information
+
+### 2.1.0 (Nov 2024)
+
+Add associative array alignment option
