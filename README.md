@@ -52,3 +52,4 @@ This extension contributes the following settings:
 * Ivan Ricart
 * iricartb@gmail.com
 * https://github.com/iricartb
+* https://www.linkedin.com/in/ivan-ricart-borges
