@@ -43,3 +43,7 @@ Initial Release of PHP Clean Code
 ### 2.0.0
 
 Fix several bugs and improve the extension
+
+### 2.0.1
+
+Change some option names
