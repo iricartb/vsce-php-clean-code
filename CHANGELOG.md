@@ -23,3 +23,11 @@ Add README.md images
 ### 2.0.4 (Nov 2024)
 
 Add CHANGELOG.md information
+
+### 2.0.5 (Nov 2024)
+
+Change README.md images
+
+### 2.0.6 (Nov 2024)
+
+Change CHANGELOG.md information
