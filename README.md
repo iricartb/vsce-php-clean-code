@@ -1,6 +1,6 @@
 # PHP Clean Code
 
-A VS Code extension for formatting PHP code.
+VS Code extension for formatting PHP code.
 
 ## Features
 
@@ -37,7 +37,7 @@ This extension contributes the following settings:
 
 ### 1.0.0
 
-Initial Release of PHP Clean Code
+Initial Release of PHP Clean Code (Beta)
 
 ### 2.0.0
 
@@ -46,3 +46,7 @@ Fix several bugs and improve the extension
 ### 2.0.1
 
 Change some option names
+
+### 2.0.2
+
+Change README.md

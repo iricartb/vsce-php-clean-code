@@ -3,7 +3,7 @@
     "displayName": "PHP Clean Code",
     "publisher": "PHPCleanCode",
     "description": "PHP code formatter according to specific rules",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "icon": "resources/icon.png",
     "engines": {
         "vscode": "^1.75.0"
