@@ -1,3 +1,5 @@
+![Icon](resources/icon.png)
+
 # PHP Clean Code
 
 Visual Studio Code Extension designed to help PHP developers keep their code clean, readable, and consistent
