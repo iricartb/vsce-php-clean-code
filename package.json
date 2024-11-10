@@ -3,7 +3,7 @@
     "displayName": "PHP Clean Code",
     "publisher": "PHPCleanCode",
     "description": "PHP code formatter according to specific rules",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "icon": "resources/icon.png",
     "repository": {
         "type": "git",
@@ -37,7 +37,7 @@
                 "php-clean-code.formatAssociativeArrayAlignment": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Align the => operators in multiline associative arrays"
+                    "description": "Format associative arrays by aligning the characters => on the same level"
                 },
                 "php-clean-code.formatBraces": {
                     "type": "boolean",

@@ -6,7 +6,7 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 
 ## Features
 
-- Align the => operators in multiline associative arrays
+- Format associative arrays by aligning the characters => on the same level
 - Format opening and closing braces
 - Format comments
 - Format function parameters
@@ -31,7 +31,7 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 ## Settings
 
 This extension contributes the following settings:
-* `php-clean-code.formatAssociativeArrayAlignment`: Align the => operators in multiline associative arrays
+* `php-clean-code.formatAssociativeArrayAlignment`: Format associative arrays by aligning the characters => on the same level
 * `php-clean-code.formatBraces`: Format opening and closing braces
 * `php-clean-code.formatComments`: Format comments
 * `php-clean-code.formatFunctionParams`: Format function parameters

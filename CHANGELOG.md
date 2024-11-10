@@ -35,3 +35,7 @@ Change CHANGELOG.md information
 ### 2.1.0 (Nov 2024)
 
 Add associative array alignment option
+
+### 2.1.1 (Nov 2024)
+
+Change README.md information
