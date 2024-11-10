@@ -5,9 +5,9 @@ A VS Code extension for formatting PHP code.
 ## Features
 
 - Format comments
-- Remove multiple consecutive empty lines
-- Remove empty lines inside the blocks at the beginning and at the end
-- Format opening and closing parentheses
+- Removes multiple consecutive empty lines
+- Removes empty lines inside the blocks at the beginning and at the end
+- Removes unnecessary spaces in opening and closing parentheses
 - Format opening and closing braces
 - Format function parameters
 - Format control structures
@@ -22,9 +22,9 @@ A VS Code extension for formatting PHP code.
 
 This extension contributes the following settings:
 * `php-clean-code.formatComments`: Format comments
-* `php-clean-code.removeMultipleEmptyLines`: Remove multiple consecutive empty lines
-* `php-clean-code.removeBlockEmptyLines`: Remove empty lines inside the blocks at the beginning and at the end
-* `php-clean-code.formatParentheses`: Format opening and closing parentheses
+* `php-clean-code.removeMultipleEmptyLines`: Removes multiple consecutive empty lines
+* `php-clean-code.removeBlockEmptyLines`: Removes empty lines inside the blocks at the beginning and at the end
+* `php-clean-code.formatParentheses`: Removes unnecessary spaces in opening and closing parentheses
 * `php-clean-code.formatBraces`: Format opening and closing braces
 * `php-clean-code.formatFunctionParams`: Format function parameters
 * `php-clean-code.formatKeywords`: Format control structures

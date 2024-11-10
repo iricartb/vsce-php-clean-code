@@ -151,7 +151,7 @@ function formatCode(text: string, options: FormatOptions): string {
             }
 
             if (!inString) {
-                // Formatea los paréntesis de apertura y cierre
+                // Elimina los espacios innecesarios en los paréntesis de apertura y cierre
                 if (options.formatParentheses) {
                     formatted = formatted.replace(/\(\s+/g, '(');
                     formatted = formatted.replace(/\s+\)/g, ')');
