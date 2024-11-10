@@ -1,6 +1,8 @@
 # PHP Clean Code
 
-VS Code extension for formatting PHP code.
+Visual Studio Code Extension designed to help PHP developers keep their code clean, readable, and consistent
+
+![Code](resources/code.png)
 
 ## Features
 
