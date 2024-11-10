@@ -15,13 +15,13 @@ A VS Code extension for formatting PHP code.
 ## Usage
 
 1. Open a PHP file
-2. Right click and select "PHP Clean Code".
+2. Right click and select "PHP Clean Code"
 3. Or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code"
 
 ## Settings
 
 This extension contributes the following settings:
-* `php-clean-code.formatComments`: Format comments.
+* `php-clean-code.formatComments`: Format comments
 * `php-clean-code.removeMultipleEmptyLines`: Remove multiple consecutive empty lines
 * `php-clean-code.removeBlockEmptyLines`: Remove empty lines inside the blocks at the beginning and at the end
 * `php-clean-code.formatParentheses`: Format opening and closing parentheses
