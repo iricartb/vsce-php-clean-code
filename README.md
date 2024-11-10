@@ -5,12 +5,12 @@ Una extensión de VS Code para formatear código PHP.
 ## Características
 
 - Formatea los comentarios
-- Elimina múltiples líneas vacías consecutivas
-- Elimina líneas vacías dentro de los bloques
-- Formatea paréntesis de apertura y cierre
-- Formatea llaves de apertura y cierre
+- Elimina las múltiples líneas vacías consecutivas
+- Elimina las líneas vacías iniciales y finales de los bloques
+- Formatea los paréntesis de apertura y cierre
+- Formatea las llaves de apertura y cierre
 - Formatea los parámetros de las funciones
-- Formatea estructuras de control (if, foreach, while, switch, etc.)
+- Formatea las estructuras de control (if, foreach, while, switch, etc.)
 
 ## Uso
 
@@ -23,12 +23,12 @@ Una extensión de VS Code para formatear código PHP.
 Esta extensión contribuye con las siguientes configuraciones:
 
 * `php-clean-code.formatComments`: Formatea los comentarios
-* `php-clean-code.removeMultipleEmptyLines`: Elimina múltiples líneas vacías consecutivas
-* `php-clean-code.removeBlockEmptyLines`: Elimina líneas vacías dentro de los bloques
-* `php-clean-code.formatParentheses`: Formatea paréntesis de apertura y cierre
-* `php-clean-code.formatBraces`: Formatea llaves de apertura y cierre
+* `php-clean-code.removeMultipleEmptyLines`: Elimina las múltiples líneas vacías consecutivas
+* `php-clean-code.removeBlockEmptyLines`: Elimina las líneas vacías iniciales y finales de los bloques
+* `php-clean-code.formatParentheses`: Formatea los paréntesis de apertura y cierre
+* `php-clean-code.formatBraces`: Formatea las llaves de apertura y cierre
 * `php-clean-code.formatFunctionParams`: Formatea los parámetros de las funciones
-* `php-clean-code.formatKeywords`: Formatea estructuras de control
+* `php-clean-code.formatKeywords`: Formatea las estructuras de control
 
 ## Requisitos
 

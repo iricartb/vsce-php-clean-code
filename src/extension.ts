@@ -75,7 +75,7 @@ function formatCode(text: string, options: FormatOptions): string {
         });
     }
     
-    // Elimina múltiples líneas vacías consecutivas
+    // Elimina las múltiples líneas vacías consecutivas
     if (options.removeMultipleEmptyLines) {
         lines = lines.reduce((acc: string[], line: string) => {
             if (acc.length === 0 || !(line.trim() === '' && acc[acc.length - 1].trim() === '')) {
@@ -85,7 +85,7 @@ function formatCode(text: string, options: FormatOptions): string {
         }, []);
     }
 
-    // Elimina líneas vacías dentro de los bloques
+    // Elimina las líneas vacías iniciales y finales de los bloques
     if (options.removeBlockEmptyLines) {
         for (let i = lines.length - 1; i >= 0; i--) {
             const currentLine = lines[i].trim();
@@ -151,19 +151,19 @@ function formatCode(text: string, options: FormatOptions): string {
             }
 
             if (!inString) {
-                // Formatea paréntesis de apertura y cierre
+                // Formatea los paréntesis de apertura y cierre
                 if (options.formatParentheses) {
                     formatted = formatted.replace(/\(\s+/g, '(');
                     formatted = formatted.replace(/\s+\)/g, ')');
                 }
 
-                // Formatea llaves de apertura y cierre
+                // Formatea las llaves de apertura y cierre
                 if (options.formatBraces) {
                     formatted = formatted.replace(/\)({)/g, ') $1');
                     formatted = formatted.replace(/}([^\s\t\n(:])/, '} $1');
                 }
 
-                // Formatear los parámetros de las funciones
+                // Formatea los parámetros de las funciones
                 if (options.formatFunctionParams) {
                     formatted = formatted.replace(/\([^)]+\)/g, (match) => {
                         let inner = match.slice(1, -1);
@@ -172,16 +172,16 @@ function formatCode(text: string, options: FormatOptions): string {
                     });
                 }
 
-                // Formatea estructuras de control
+                // Formatea las estructuras de control
                 if (options.formatKeywords) {
-                    // Formatea estructuras de control genéricas
+                    // Formatea las estructuras de control genéricas
                     const keywords = ['if', 'foreach', 'while', 'switch', 'catch', 'do', 'elseif', 'else'];
                     keywords.forEach(keyword => {
                         const regex = new RegExp(`\\b${keyword}\\b(?!\\s)(?=\\s*[({])`, 'g');
                         formatted = formatted.replace(regex, `${keyword} `);
                     });
 
-                    // Formatea for
+                    // Formatea la estructura de control for
                     formatted = formatted.replace(/\bfor\s*\([^)]+\)/g, (match) => {
                         if (match.match(/\bforeach\b/)) {
                             return match;
@@ -195,7 +195,7 @@ function formatCode(text: string, options: FormatOptions): string {
                         return `for(${inner})`;
                     });
 
-                    // Formatea return
+                    // Formatea el return
                     formatted = formatted.replace(/\breturn\b(?!\s)(?=[^\s;])/g, 'return ');
                 }
             }
