@@ -38,17 +38,17 @@
                 "php-clean-code.removeMultipleEmptyLines": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Remove multiple consecutive empty lines"
+                    "description": "Removes multiple consecutive empty lines"
                 },
-                "php-clean-code.removeBlockEmptyLines": {
+                "php-clean-code.removeBlockInitEndEmptyLines": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Remove empty lines inside the blocks at the beginning and at the end"
+                    "description": "Removes empty lines inside the blocks at the beginning and at the end"
                 },
-                "php-clean-code.formatParentheses": {
+                "php-clean-code.removeUnnecessarySpacesParentheses": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Format opening and closing parentheses"
+                    "description": "Removes unnecessary spaces in opening and closing parentheses"
                 },
                 "php-clean-code.formatBraces": {
                     "type": "boolean",

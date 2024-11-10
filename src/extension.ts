@@ -1,10 +1,10 @@
 import * as vscode from 'vscode';
 
 interface FormatOptions {
-    removeBlockEmptyLines: boolean;
-    removeMultipleEmptyLines: boolean;
     formatComments: boolean;
-    formatParentheses: boolean;
+    removeBlockInitEndEmptyLines: boolean;
+    removeMultipleEmptyLines: boolean;
+    removeUnnecessarySpacesParentheses: boolean;
     formatBraces: boolean;
     formatFunctionParams: boolean;
     formatKeywords: boolean;
@@ -29,10 +29,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         const config = vscode.workspace.getConfiguration('php-clean-code');
         const options: FormatOptions = {
-            removeBlockEmptyLines: config.get('removeBlockEmptyLines', true),
+            removeBlockInitEndEmptyLines: config.get('removeBlockInitEndEmptyLines', true),
             removeMultipleEmptyLines: config.get('removeMultipleEmptyLines', true),
             formatComments: config.get('formatComments', true),
-            formatParentheses: config.get('formatParentheses', true),
+            removeUnnecessarySpacesParentheses: config.get('removeUnnecessarySpacesParentheses', true),
             formatBraces: config.get('formatBraces', true),
             formatFunctionParams: config.get('formatFunctionParams', true),
             formatKeywords: config.get('formatKeywords', true)
@@ -86,7 +86,7 @@ function formatCode(text: string, options: FormatOptions): string {
     }
 
     // Elimina las líneas vacías iniciales y finales de los bloques
-    if (options.removeBlockEmptyLines) {
+    if (options.removeBlockInitEndEmptyLines) {
         for (let i = lines.length - 1; i >= 0; i--) {
             const currentLine = lines[i].trim();
             const prevLine = i > 0 ? lines[i - 1].trim() : '';
@@ -152,7 +152,7 @@ function formatCode(text: string, options: FormatOptions): string {
 
             if (!inString) {
                 // Elimina los espacios innecesarios en los paréntesis de apertura y cierre
-                if (options.formatParentheses) {
+                if (options.removeUnnecessarySpacesParentheses) {
                     formatted = formatted.replace(/\(\s+/g, '(');
                     formatted = formatted.replace(/\s+\)/g, ')');
                 }
