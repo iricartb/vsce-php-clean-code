@@ -175,7 +175,7 @@ function formatCode(text: string, options: FormatOptions): string {
                 // Formatea las estructuras de control
                 if (options.formatKeywords) {
                     // Formatea las estructuras de control genéricas
-                    const keywords = ['if', 'else', 'elseif', 'switch', 'foreach', 'do', 'while', 'try', 'catch', 'finally'];
+                    const keywords = ['if', 'else', 'elseif', 'switch', 'foreach', 'do', 'while', 'try', 'finally'];
                     keywords.forEach(keyword => {
                         const regex = new RegExp(`\\b${keyword}\\b(?!\\s)(?=\\s*[({])`, 'g');
                         formatted = formatted.replace(regex, `${keyword} `);
