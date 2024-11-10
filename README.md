@@ -53,4 +53,8 @@ Change some option names
 
 ### 2.0.2
 
-Change README.md
+Change README.md information
+
+### 2.0.3
+
+Add README.md images
