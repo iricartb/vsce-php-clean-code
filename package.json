@@ -59,15 +59,15 @@
                     "default": true,
                     "description": "Format control structures"
                 },
-                "php-clean-code.removeMultipleEmptyLines": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Removes multiple consecutive empty lines"
-                },
                 "php-clean-code.removeBlockInitEndEmptyLines": {
                     "type": "boolean",
                     "default": true,
                     "description": "Removes empty lines inside the blocks at the beginning and at the end"
+                },
+                "php-clean-code.removeMultipleEmptyLines": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Removes multiple consecutive empty lines"
                 },
                 "php-clean-code.removeUnnecessarySpacesParentheses": {
                     "type": "boolean",

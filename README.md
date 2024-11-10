@@ -11,8 +11,8 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 - Format comments
 - Format function parameters
 - Format control structures
-- Removes multiple consecutive empty lines
 - Removes empty lines inside the blocks at the beginning and at the end
+- Removes multiple consecutive empty lines
 - Removes unnecessary spaces in opening and closing parentheses
 
 ## Before
@@ -36,9 +36,9 @@ This extension contributes the following settings:
 * `php-clean-code.formatComments`: Format comments
 * `php-clean-code.formatFunctionParams`: Format function parameters
 * `php-clean-code.formatKeywords`: Format control structures
-* `php-clean-code.removeMultipleEmptyLines`: Removes multiple consecutive empty lines
 * `php-clean-code.removeBlockInitEndEmptyLines`: Removes empty lines inside the blocks at the beginning and at the end
-* `php-clean-code.formatParentheses`: Removes unnecessary spaces in opening and closing parentheses
+* `php-clean-code.removeMultipleEmptyLines`: Removes multiple consecutive empty lines
+* `php-clean-code.removeUnnecessarySpacesParentheses`: Removes unnecessary spaces in opening and closing parentheses
 
 ## Requirements
 
