@@ -36,25 +36,3 @@ This extension contributes the following settings:
 
 * Visual Studio Code 1.75.0 or higher
 * PHP files
-
-## Release Notes
-
-### 1.0.0
-
-Initial Release of PHP Clean Code (Beta)
-
-### 2.0.0
-
-Fix several bugs and improve the extension
-
-### 2.0.1
-
-Change some option names
-
-### 2.0.2
-
-Change README.md information
-
-### 2.0.3
-
-Add README.md images
