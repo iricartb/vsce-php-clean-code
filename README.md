@@ -8,7 +8,7 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 
 ## Features
 
-- Format comments
+- <span style="color: yellow;">Format comments
 - Removes multiple consecutive empty lines
 - Removes empty lines inside the blocks at the beginning and at the end
 - Removes unnecessary spaces in opening and closing parentheses
@@ -24,13 +24,13 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 ## Settings
 
 This extension contributes the following settings:
-<span style="color: yellow;">`php-clean-code.formatComments`</span>: Format comments
-<span style="color: yellow;">`php-clean-code.removeMultipleEmptyLines`</span>: Removes multiple consecutive empty lines
-<span style="color: yellow;">`php-clean-code.removeBlockInitEndEmptyLines`</span>: Removes empty lines inside the blocks at the beginning and at the end
-<span style="color: yellow;">`php-clean-code.formatParentheses`</span>: Removes unnecessary spaces in opening and closing parentheses
-<span style="color: yellow;">`php-clean-code.formatBraces`</span>: Format opening and closing braces
-<span style="color: yellow;">`php-clean-code.formatFunctionParams`</span>: Format function parameters
-<span style="color: yellow;">`php-clean-code.formatKeywords`</span>: Format control structures
+* `php-clean-code.formatComments`: Format comments
+* `php-clean-code.removeMultipleEmptyLines`: Removes multiple consecutive empty lines
+* `php-clean-code.removeBlockInitEndEmptyLines`: Removes empty lines inside the blocks at the beginning and at the end
+* `php-clean-code.formatParentheses`: Removes unnecessary spaces in opening and closing parentheses
+* `php-clean-code.formatBraces`: Format opening and closing braces
+* `php-clean-code.formatFunctionParams`: Format function parameters
+* `php-clean-code.formatKeywords`: Format control structures
 
 ## Requirements
 
