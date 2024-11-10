@@ -1,42 +1,45 @@
 # PHP Clean Code
 
-Una extensión de VS Code para formatear código PHP.
+A VS Code extension for formatting PHP code.
 
-## Características
+## Features
 
-- Formatea los comentarios
-- Elimina las múltiples líneas vacías consecutivas
-- Elimina las líneas vacías iniciales y finales de los bloques
-- Formatea los paréntesis de apertura y cierre
-- Formatea las llaves de apertura y cierre
-- Formatea los parámetros de las funciones
-- Formatea las estructuras de control (if, foreach, while, switch, etc.)
+- Format comments
+- Remove multiple consecutive empty lines
+- Remove empty lines inside the blocks at the beginning and at the end
+- Format opening and closing parentheses
+- Format opening and closing braces
+- Format function parameters
+- Format control structures
 
-## Uso
+## Usage
 
-1. Abre un archivo PHP
-2. Haz clic derecho y selecciona "PHP Clean Code"
-3. O usa la paleta de comandos (Ctrl+Shift+P) y busca "PHP Clean Code"
+1. Open a PHP file
+2. Right click and select "PHP Clean Code".
+3. Or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code"
 
-## Configuración
+## Settings
 
-Esta extensión contribuye con las siguientes configuraciones:
+This extension contributes the following settings:
+* `php-clean-code.formatComments`: Format comments.
+* `php-clean-code.removeMultipleEmptyLines`: Remove multiple consecutive empty lines
+* `php-clean-code.removeBlockEmptyLines`: Remove empty lines inside the blocks at the beginning and at the end
+* `php-clean-code.formatParentheses`: Format opening and closing parentheses
+* `php-clean-code.formatBraces`: Format opening and closing braces
+* `php-clean-code.formatFunctionParams`: Format function parameters
+* `php-clean-code.formatKeywords`: Format control structures
 
-* `php-clean-code.formatComments`: Formatea los comentarios
-* `php-clean-code.removeMultipleEmptyLines`: Elimina las múltiples líneas vacías consecutivas
-* `php-clean-code.removeBlockEmptyLines`: Elimina las líneas vacías iniciales y finales de los bloques
-* `php-clean-code.formatParentheses`: Formatea los paréntesis de apertura y cierre
-* `php-clean-code.formatBraces`: Formatea las llaves de apertura y cierre
-* `php-clean-code.formatFunctionParams`: Formatea los parámetros de las funciones
-* `php-clean-code.formatKeywords`: Formatea las estructuras de control
+## Requirements
 
-## Requisitos
+* Visual Studio Code 1.75.0 or higher
+* PHP files
 
-* Visual Studio Code 1.75.0 o superior
-* Archivos PHP
-
-## Notas de la Versión
+## Release Notes
 
 ### 1.0.0
 
-Lanzamiento inicial de PHP Clean Code
+Initial Release of PHP Clean Code
+
+### 2.0.0
+
+Fix several bugs and improve the extension
