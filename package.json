@@ -1,0 +1,91 @@
+{
+    "name": "php-clean-code",
+    "displayName": "PHP Clean Code",
+    "description": "Formateador de código PHP según reglas específicas",
+    "version": "1.0.0",
+    "icon": "resources/icon.png",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [{
+            "command": "php-clean-code.format",
+            "title": "PHP Clean Code"
+        }],
+        "menus": {
+            "editor/context": [{
+                "command": "php-clean-code.format",
+                "when": "editorLangId == php",
+                "group": "1_modification"
+            }]
+        },
+        "configuration": {
+            "title": "PHP Clean Code",
+            "properties": {
+                "php-clean-code.formatComments": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Formatear los comentarios"
+                },
+                "php-clean-code.removeMultipleEmptyLines": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Quitar múltiples líneas vacías consecutivas"
+                },
+                "php-clean-code.removeBlockEmptyLines": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Quitar líneas vacías dentro de los bloques al principio y al final"
+                },
+                "php-clean-code.formatParentheses": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Formatear paréntesis de apertura y cierre"
+                },
+                "php-clean-code.formatBraces": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Formatear llaves de apertura y cierre"
+                },
+                "php-clean-code.formatFunctionParams": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Formatea los parámetros de las funciones"
+                },
+                "php-clean-code.formatKeywords": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Formatear estructuras de control"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.75.0",
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.2.2",
+        "@types/node": "14.x",
+        "eslint": "^7.27.0",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
+        "glob": "^7.1.7",
+        "mocha": "^8.4.0",
+        "typescript": "^4.3.2",
+        "vscode-test": "^1.5.2"
+    }
+}

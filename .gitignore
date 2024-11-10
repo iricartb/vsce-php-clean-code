@@ -1,0 +1,8 @@
+# Dependencias
+node_modules/
+
+# Archivos compilados
+out/
+
+# Archivos de ambiente local
+.vscode/
