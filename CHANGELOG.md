@@ -55,3 +55,7 @@ Add ✓ to context options menu
 ### 2.1.5 (Nov 2024)
 
 Add English information
+
+### 2.1.6 (Nov 2024)
+
+Change English information

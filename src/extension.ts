@@ -71,11 +71,11 @@ export function activate(context: vscode.ExtensionContext) {
             editBuilder.replace(selection, formatted);
         }).then(success => {
             if (success) {
-                console.log('Selection formatting completed successfully');
-                vscode.window.showInformationMessage('Correctly formatting selection');
+                console.log('✓ Selection formatting completed successfully');
+                vscode.window.showInformationMessage('✓ Selection formatting completed successfully');
             } else {
-                console.log('Error formatting selection');
-                vscode.window.showErrorMessage('Error formatting selection');
+                console.log('✗ Error formatting selection');
+                vscode.window.showErrorMessage('✗ Error formatting selection');
             }
         });
     });
@@ -127,11 +127,11 @@ function formatDocument() {
         editBuilder.replace(fullRange, formatted);
     }).then(success => {
         if (success) {
-            console.log('Formatting completed successfully');
-            vscode.window.showInformationMessage('Correctly formatting document');
+            console.log('✓ Document formatting completed successfully');
+            vscode.window.showInformationMessage('✓ Document formatting completed successfully');
         } else {
-            console.log('Formatting error');
-            vscode.window.showErrorMessage('Error formatting document');
+            console.log('✗ Error formatting document');
+            vscode.window.showErrorMessage('✗ Error formatting document');
         }
     });
 }
