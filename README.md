@@ -25,8 +25,15 @@ Visual Studio Code Extension designed to help PHP developers keep their code cle
 
 ## Usage
 
+### Document
+
 1. Open a PHP file
-2. Right click and select "PHP Clean Code" or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code"
+2. Right click and select "PHP Clean Code Document" or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code Document"
+
+### Selection
+
+1. Open a PHP file
+2. Select the text you want to format and right click and select "PHP Clean Code Selection" or use the command palette (Ctrl+Shift+P) and search for "PHP Clean Code Selection"
 
 ## Settings
 

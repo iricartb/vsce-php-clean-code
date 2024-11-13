@@ -14,20 +14,32 @@ interface FormatOptions {
 export function activate(context: vscode.ExtensionContext) {
     console.log('Extensión PHP Clean Code activada');
 
+    // Comando original (mantener por compatibilidad)
     let disposable = vscode.commands.registerCommand('php-clean-code.format', () => {
-        console.log('Comando format ejecutado');
-        
+        formatDocument();
+    });
+
+    // Comando para formatear selección
+    let formatSelectionCmd = vscode.commands.registerCommand('php-clean-code.formatSelection', () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
             console.log('No hay editor activo');
             return;
         }
+    
+        const selection = editor.selection;
+        if (selection.isEmpty) {
+            console.log('No hay texto seleccionado');
+            return;
+        }
+    
+        const text = editor.document.getText(selection);
+        // Manejamos el caso donde match puede ser null
+        const indentMatch = text.match(/^\s*/);
+        const firstLineIndentation = indentMatch ? indentMatch[0] : '';
         
-        const document = editor.document;
-        const text = document.getText();
-        
-        console.log('Texto original:', text);
-
+        console.log('Texto seleccionado:', text);
+    
         const config = vscode.workspace.getConfiguration('php-clean-code');
         const options: FormatOptions = {
             formatAssociativeArrayAlignment: config.get('formatAssociativeArrayAlignment', true),
@@ -39,30 +51,89 @@ export function activate(context: vscode.ExtensionContext) {
             removeMultipleEmptyLines: config.get('removeMultipleEmptyLines', true),
             removeUnnecessarySpacesParentheses: config.get('removeUnnecessarySpacesParentheses', true)
         };
-
+    
         console.log('Opciones:', options);
-        
+    
         editor.edit(editBuilder => {
-            const formatted = formatCode(text, options);
-            console.log('Texto formateado:', formatted);
+            let formatted = formatCode(text, options);
             
-            const fullRange = new vscode.Range(
-                document.positionAt(0),
-                document.positionAt(text.length)
-            );
-            editBuilder.replace(fullRange, formatted);
+            // Aseguramos que la primera línea mantenga su indentación original
+            if (formatted.startsWith(firstLineIndentation)) {
+                // Si ya tiene la indentación correcta, la dejamos como está
+                console.log('Indentación ya correcta');
+            } else {
+                // Si no tiene la indentación correcta, la agregamos
+                formatted = firstLineIndentation + formatted.trimLeft();
+                console.log('Añadida indentación original');
+            }
+            
+            console.log('Texto formateado:', formatted);
+            editBuilder.replace(selection, formatted);
         }).then(success => {
             if (success) {
-                console.log('Formateo completado con éxito');
-                vscode.window.showInformationMessage('Código formateado correctamente');
+                console.log('Formateo de selección completado con éxito');
+                vscode.window.showInformationMessage('Selección formateada correctamente');
             } else {
-                console.log('Error al formatear');
-                vscode.window.showErrorMessage('Error al formatear el código');
+                console.log('Error al formatear selección');
+                vscode.window.showErrorMessage('Error al formatear la selección');
             }
         });
     });
 
+    // Comando para formatear documento completo
+    let formatDocumentCmd = vscode.commands.registerCommand('php-clean-code.formatDocument', () => {
+        formatDocument();
+    });
+
     context.subscriptions.push(disposable);
+    context.subscriptions.push(formatSelectionCmd);
+    context.subscriptions.push(formatDocumentCmd);
+}
+
+function formatDocument() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        console.log('No hay editor activo');
+        return;
+    }
+
+    const document = editor.document;
+    const text = document.getText();
+
+    console.log('Texto original:', text);
+
+    const config = vscode.workspace.getConfiguration('php-clean-code');
+    const options: FormatOptions = {
+        formatAssociativeArrayAlignment: config.get('formatAssociativeArrayAlignment', true),
+        formatBraces: config.get('formatBraces', true),
+        formatComments: config.get('formatComments', true),
+        formatFunctionParams: config.get('formatFunctionParams', true),
+        formatKeywords: config.get('formatKeywords', true),
+        removeBlockInitEndEmptyLines: config.get('removeBlockInitEndEmptyLines', true),
+        removeMultipleEmptyLines: config.get('removeMultipleEmptyLines', true),
+        removeUnnecessarySpacesParentheses: config.get('removeUnnecessarySpacesParentheses', true)
+    };
+
+    console.log('Opciones:', options);
+
+    editor.edit(editBuilder => {
+        const formatted = formatCode(text, options);
+        console.log('Texto formateado:', formatted);
+
+        const fullRange = new vscode.Range(
+            document.positionAt(0),
+            document.positionAt(text.length)
+        );
+        editBuilder.replace(fullRange, formatted);
+    }).then(success => {
+        if (success) {
+            console.log('Formateo completado con éxito');
+            vscode.window.showInformationMessage('Documento formateado correctamente');
+        } else {
+            console.log('Error al formatear');
+            vscode.window.showErrorMessage('Error al formatear el documento');
+        }
+    });
 }
 
 function formatCode(text: string, options: FormatOptions): string {
