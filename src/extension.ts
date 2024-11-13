@@ -12,7 +12,7 @@ interface FormatOptions {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('Extensión PHP Clean Code activada');
+    console.log('PHP Clean Code extension activated');
 
     // Comando original (mantener por compatibilidad)
     let disposable = vscode.commands.registerCommand('php-clean-code.format', () => {
@@ -23,13 +23,13 @@ export function activate(context: vscode.ExtensionContext) {
     let formatSelectionCmd = vscode.commands.registerCommand('php-clean-code.formatSelection', () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
-            console.log('No hay editor activo');
+            console.log('There is no active editor');
             return;
         }
     
         const selection = editor.selection;
         if (selection.isEmpty) {
-            console.log('No hay texto seleccionado');
+            console.log('No text selected');
             return;
         }
     
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
         const indentMatch = text.match(/^\s*/);
         const firstLineIndentation = indentMatch ? indentMatch[0] : '';
         
-        console.log('Texto seleccionado:', text);
+        console.log('Selected text:', text);
     
         const config = vscode.workspace.getConfiguration('php-clean-code');
         const options: FormatOptions = {
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
             removeUnnecessarySpacesParentheses: config.get('removeUnnecessarySpacesParentheses', true)
         };
     
-        console.log('Opciones:', options);
+        console.log('Options:', options);
     
         editor.edit(editBuilder => {
             let formatted = formatCode(text, options);
@@ -60,22 +60,22 @@ export function activate(context: vscode.ExtensionContext) {
             // Aseguramos que la primera línea mantenga su indentación original
             if (formatted.startsWith(firstLineIndentation)) {
                 // Si ya tiene la indentación correcta, la dejamos como está
-                console.log('Indentación ya correcta');
+                console.log('Indentation already correct');
             } else {
                 // Si no tiene la indentación correcta, la agregamos
                 formatted = firstLineIndentation + formatted.trimLeft();
-                console.log('Añadida indentación original');
+                console.log('Added original indentation');
             }
             
-            console.log('Texto formateado:', formatted);
+            console.log('Formatted text:', formatted);
             editBuilder.replace(selection, formatted);
         }).then(success => {
             if (success) {
-                console.log('Formateo de selección completado con éxito');
-                vscode.window.showInformationMessage('Selección formateada correctamente');
+                console.log('Selection formatting completed successfully');
+                vscode.window.showInformationMessage('Correctly formatting selection');
             } else {
-                console.log('Error al formatear selección');
-                vscode.window.showErrorMessage('Error al formatear la selección');
+                console.log('Error formatting selection');
+                vscode.window.showErrorMessage('Error formatting selection');
             }
         });
     });
@@ -127,11 +127,11 @@ function formatDocument() {
         editBuilder.replace(fullRange, formatted);
     }).then(success => {
         if (success) {
-            console.log('Formateo completado con éxito');
-            vscode.window.showInformationMessage('Documento formateado correctamente');
+            console.log('Formatting completed successfully');
+            vscode.window.showInformationMessage('Correctly formatting document');
         } else {
-            console.log('Error al formatear');
-            vscode.window.showErrorMessage('Error al formatear el documento');
+            console.log('Formatting error');
+            vscode.window.showErrorMessage('Error formatting document');
         }
     });
 }

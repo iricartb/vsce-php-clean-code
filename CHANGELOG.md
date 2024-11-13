@@ -51,3 +51,7 @@ Add format code selection functionality
 ### 2.1.4 (Nov 2024)
 
 Add ✓ to context options menu
+
+### 2.1.5 (Nov 2024)
+
+Add English information

@@ -3,7 +3,7 @@
     "displayName": "PHP Clean Code",
     "publisher": "PHPCleanCode",
     "description": "PHP code formatter according to specific rules",
-    "version": "2.1.4",
+    "version": "2.1.5",
     "icon": "resources/icon.png",
     "repository": {
         "type": "git",
