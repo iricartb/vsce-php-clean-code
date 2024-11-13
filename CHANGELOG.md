@@ -47,3 +47,7 @@ Change README.md and package.json information
 ### 2.1.3 (Nov 2024)
 
 Add format code selection functionality
+
+### 2.1.4 (Nov 2024)
+
+Add ✓ to context options menu

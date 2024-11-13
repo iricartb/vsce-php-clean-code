@@ -3,7 +3,7 @@
     "displayName": "PHP Clean Code",
     "publisher": "PHPCleanCode",
     "description": "PHP code formatter according to specific rules",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "icon": "resources/icon.png",
     "repository": {
         "type": "git",
@@ -20,13 +20,13 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
-        "commands": [        {
+        "commands": [{
             "command": "php-clean-code.formatDocument",
-            "title": "PHP Clean Code Document"
+            "title": "✓ PHP Clean Code Document"
         },
         {
             "command": "php-clean-code.formatSelection",
-            "title": "PHP Clean Code Selection"
+            "title": "✓ PHP Clean Code Selection"
         }],
         "menus": {
             "editor/context": [            {
